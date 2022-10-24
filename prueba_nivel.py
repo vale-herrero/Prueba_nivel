@@ -1,6 +1,4 @@
 
-
-
 class Vehiculo():
     def __init__(self, color, ruedas):
         self.color = color
@@ -30,15 +28,20 @@ class Motocicleta(Bicicleta):
 
 def catalogar(lista_vehiculos, ruedas = None):
     counter_vehiculos = 0
-    for counter, vehiculo in enumerate(lista_vehiculos):
+    for i, vehiculo in enumerate(lista_vehiculos):
         if ruedas != None:
             if vehiculo.ruedas == ruedas:
-                counter_vehiculos = counter_vehiculos + 1
-                print('Vehiculo {} tipo: {}'.format(counter+1,type(vehiculo).__name__))
+                counter_vehiculos += 1
+                print('Vehiculo {} tipo: {}'.format(i+1, type(vehiculo).__name__))
                 print('Atributos:')
                 print(vehiculo.__dict__)
+                print('Se ha(n) encontrado {} vehículo(s) con {} rueda(s)'.format(counter_vehiculos, ruedas))
+        else:
+            print('Vehiculo {} tipo: {}'.format(i+1, type(vehiculo).__name__))
+            print('Atributos:')
+            print(vehiculo.__dict__)   
+ 
 
-    print('Se han encontrado {} vehículo(s) con {} ruedas'.format(counter_vehiculos, ruedas))
 
 vehiculos = []
 
@@ -52,5 +55,5 @@ vehiculos.append(vehiculo2)
 vehiculos.append(vehiculo3)
 vehiculos.append(vehiculo4)
 
-catalogar(vehiculos, ruedas = 6)
+catalogar(vehiculos,6)
 
